@@ -49,12 +49,11 @@ public class GameOfDice {
         System.out.println("Welcome! Let's Roll Some Dice!");
 
         //LoopsG
-        while(userInput.equals("yes") && addingScore <= 100){
+        while(userInput.equals("yes") && addingScore < 100){
             int singleScore = 0;
             int randNum1 = 1 + randomizer1.nextInt(6);
             int randNum2 = 1 + randomizer2.nextInt(6);
             counter++;
-
             System.out.printf("You rolled %d & %d \n", randNum1, randNum2);
             if(randNum1 + randNum2 == 2){
                 addingScore += 25;
@@ -72,6 +71,14 @@ public class GameOfDice {
             userInput = kybd.nextLine();
             userInput = userInput.toLowerCase();
         }
-        System.out.printf("Program has end! Good Game! Your Score After %d Rounds Was: %d", counter, addingScore);
+
+        if(addingScore >= 100){
+            System.out.print("You Scored Over 100!\n");
+            System.out.printf("Program has end! Good Game! Your Score After %d Rounds Was: %d\n", counter, addingScore);
+        }
+        else{
+            System.out.printf("Program has end! Good Game! Your Score After %d Rounds Was: %d", counter, addingScore);
+        }
+
     }
 }
